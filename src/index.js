@@ -1,6 +1,7 @@
 const express =require('express');
 //inicializar
 const app=express();
+require('./db');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
@@ -31,7 +32,7 @@ app.use(require('./routes/notes'));
 app.use(require('./routes/users'));
 
 //archivos estaticos
-
+app.use(express.static(path.join(__dirname,'public')));
 
 //iniciar server (ya escucha) 
 app.listen(app.get('port'), ()=>{
