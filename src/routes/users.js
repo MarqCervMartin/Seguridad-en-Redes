@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const User = require('../models/users')
+
 router.get('/users/signin',(req,res)=>{
     res.render('users/signin');
 })
@@ -25,7 +27,9 @@ router.post('/users/singup',(req,res)=>{
     if(errors.length>0){
         res.render('users/singup',{errors,nombre,email,password,confirm_password});
     }else{ 
-    res.send("OK");
+        //const newUser = new User({name,email,password});
+        //newUser.password=await newUser.encryptPassword(password);
+        
     }
 })
 
