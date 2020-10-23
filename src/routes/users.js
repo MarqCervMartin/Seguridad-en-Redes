@@ -12,7 +12,7 @@ router.post('/users/singup',(req,res)=>{
     const{nombre,email,password,confirm_password} =req.body;
     const errors = [];
     console.log(req.body);
-    if(nombre.length<=0){
+    /* if(nombre.length<=0){
         errors.push({text: 'Por favor inserta nombre'});
     }
     if(password!=confirm_password){
@@ -20,10 +20,11 @@ router.post('/users/singup',(req,res)=>{
     }
     if(password.length<4){
         errors.push({text: 'password muy corta, ingresa mas de 4 caracteres'})
-    }
+    }*/
+
     if(errors.length>0){
         res.render('users/singup',{errors,nombre,email,password,confirm_password});
-    }else{
+    }else{ 
     res.send("OK");
     }
 })
